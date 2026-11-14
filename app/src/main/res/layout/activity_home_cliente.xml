@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainHomeClienteEM"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#121212"
+    tools:context=".HomeClienteActivity">
+
+    <!-- CABECERA SUPERIOR (Header) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/headerCardEM"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:paddingTop="36dp"
+            android:paddingBottom="18dp">
+
+            <TextView
+                android:id="@+id/textViewHomeTitleEM"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Barberías Los Olivos"
+                android:textColor="#111111"
+                android:textSize="22sp"
+                android:textStyle="bold" />
+
+            <ImageButton
+                android:id="@+id/btnNotificationEM"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:contentDescription="Notificaciones"
+                android:src="@drawable/ic_notifications"
+                app:tint="#111111" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- ÁREA CENTRAL: MAPA INTERACTIVO GOOGLE MAPS (Visibilidad predeterminada) -->
+    <fragment
+        android:id="@+id/mapEM"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavCardEM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerCardEM" />
+
+    <!-- BOTÓN FLOTANTE SOBRE EL MAPA: Cerca de mí -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnNearMeEM"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:text="📍 Cerca de mí"
+        android:textColor="@android:color/white"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:backgroundTint="#111111"
+        app:cornerRadius="24dp"
+        app:elevation="6dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavCardEM"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- SECCIÓN DE BÚSQUEDA Y LISTA DE BARBERÍAS (Aparece únicamente al pulsar BUSCAR) -->
+    <LinearLayout
+        android:id="@+id/searchListLayoutEM"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#121212"
+        android:orientation="vertical"
+        android:paddingHorizontal="16dp"
+        android:paddingTop="12dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNavCardEM"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerCardEM"
+        tools:visibility="gone">
+
+        <!-- Campo de Búsqueda -->
+        <com.google.android.material.textfield.TextInputLayout
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            app:boxBackgroundColor="@android:color/white"
+            app:boxCornerRadiusBottomEnd="14dp"
+            app:boxCornerRadiusBottomStart="14dp"
+            app:boxCornerRadiusTopEnd="14dp"
+            app:boxCornerRadiusTopStart="14dp"
+            app:startIconDrawable="@drawable/ic_search">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editTextSearchListEM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar barbería por nombre..."
+                android:inputType="text"
+                android:textColor="#111111"
+                android:textSize="14sp" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <!-- Título de la lista -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:text="BARBERÍAS REGISTRADAS"
+            android:textColor="@android:color/white"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <!-- Contenedor dinámico con Scroll de Tarjetas de Barberías -->
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/layoutBarbershopListContainerEM"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="20dp" />
+        </ScrollView>
+    </LinearLayout>
+
+    <!-- BARRA DE NAVEGACIÓN INFERIOR (BottomNavigationView) -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/bottomNavCardEM"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@android:color/white"
+        app:cardElevation="12dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationEM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:itemIconTint="#111111"
+            app:itemTextColor="#111111"
+            app:labelVisibilityMode="labeled"
+            app:menu="@menu/bottom_nav_menu" />
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

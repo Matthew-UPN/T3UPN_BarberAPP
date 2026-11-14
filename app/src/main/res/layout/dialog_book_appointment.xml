@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    android:paddingTop="20dp"
+    android:paddingBottom="28dp">
+
+    <!-- Indicador de arrastre -->
+    <View
+        android:layout_width="40dp"
+        android:layout_height="4dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"
+        android:background="#DDDDDD" />
+
+    <TextView
+        android:id="@+id/tvBookBarbershopNameEM"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Barbería Los Olivos"
+        android:textColor="#111111"
+        android:textSize="22sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp"
+        android:text="Selecciona el servicio y horario de tu cita"
+        android:textColor="#666666"
+        android:textSize="13sp" />
+
+    <!-- Selección de Servicio -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Servicio:"
+        android:textColor="#111111"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/rgServiceListEM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp">
+
+        <RadioButton
+            android:id="@+id/rbService1EM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="✂️ Corte de Cabello — S/ 25.00" />
+
+        <RadioButton
+            android:id="@+id/rbService2EM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🧔 Arreglo de Barba — S/ 15.00" />
+
+        <RadioButton
+            android:id="@+id/rbService3EM"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💈 Combo VIP (Corte + Barba) — S/ 35.00" />
+    </RadioGroup>
+
+    <!-- Selección de Hora -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Horario disponible:"
+        android:textColor="#111111"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <RadioGroup
+        android:id="@+id/rgTimeSlotsEM"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="12dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbTime1EM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="10:00 AM" />
+
+        <RadioButton
+            android:id="@+id/rbTime2EM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="03:00 PM" />
+
+        <RadioButton
+            android:id="@+id/rbTime3EM"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="05:30 PM" />
+    </RadioGroup>
+
+    <!-- Selección de Barbero -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="Seleccionar Barbero:"
+        android:textColor="#111111"
+        android:textSize="14sp"
+        android:textStyle="bold" />
+
+    <Spinner
+        android:id="@+id/spinnerBookBarberEM"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginBottom="8dp" />
+
+    <!-- Botón Confirmar Reserva -->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnConfirmBookingEM"
+        android:layout_width="match_parent"
+        android:layout_height="52dp"
+        android:layout_marginTop="24dp"
+        android:text="CONFIRMAR RESERVA"
+        android:textColor="@android:color/white"
+        android:textStyle="bold"
+        app:backgroundTint="#111111"
+        app:cornerRadius="14dp" />
+
+</LinearLayout>
